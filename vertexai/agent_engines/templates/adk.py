@@ -390,7 +390,7 @@ def _default_instrumentor_builder(
         vertex_sdk_version = aip_version.__version__
         otlp_http_version = opentelemetry.exporter.otlp.proto.http.version.__version__
         user_agent = f"Vertex-Agent-Engine/{vertex_sdk_version} OTel-OTLP-Exporter-Python/{otlp_http_version}"
-
+        print ("[yaoliu] before span_exporter")
         span_exporter = (
             opentelemetry.exporter.otlp.proto.http.trace_exporter.OTLPSpanExporter(
                 session=google.auth.transport.requests.AuthorizedSession(
@@ -551,6 +551,7 @@ def _warn_if_telemetry_api_disabled():
         import google.auth
     except (ImportError, AttributeError):
         return
+    print ("[yaoliu] befofe google.auth.default()")
     credentials, project = google.auth.default()
     session = google.auth.transport.requests.AuthorizedSession(credentials=credentials)
     r = session.post("https://telemetry.googleapis.com/v1/traces", data=None)
