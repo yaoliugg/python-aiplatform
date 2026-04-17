@@ -618,6 +618,7 @@ class AdkApp:
         import os
         from google.cloud.aiplatform import initializer
 
+        raise ValueError("[yaoliu]: disable bound token 1")
         print ("[yaoliu]: disable bound token 1")
         os.environ['GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES'] = 'false'
 
@@ -811,6 +812,7 @@ class AdkApp:
         from google.adk.memory.in_memory_memory_service import InMemoryMemoryService
 
         os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "1"
+        raise ValueError("[yaoliu]: disable bound token")
         print ("[yaoliu]: disable bound token")
         os.environ['GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES'] = 'false'
         project = self._tmpl_attrs.get("project")
