@@ -618,6 +618,9 @@ class AdkApp:
         import os
         from google.cloud.aiplatform import initializer
 
+        print ("[yaoliu]: disable bound token 1")
+        os.environ['GOOGLE_API_PREVENT_AGENT_TOKEN_SHARING_FOR_GCP_SERVICES'] = 'false'
+
         adk_version = get_adk_version()
         if not is_version_sufficient("1.5.0"):
             msg = (
